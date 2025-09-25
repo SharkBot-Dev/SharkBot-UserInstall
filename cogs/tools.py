@@ -8,7 +8,7 @@ class ToolsCog(commands.Cog):
 
     tools = app_commands.Group(name="tools", description="ツール関連のコマンドです。")
 
-    @tools.command(name="afk", description="さいころをふります。")
+    @tools.command(name="afk", description="AFKを設定します。")
     @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
     async def afk(self, interaction: Interaction, 理由: str, 終わったらやること: str = "まだ予定がありません。"):
         await interaction.response.defer()
