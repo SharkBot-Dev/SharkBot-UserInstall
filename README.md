@@ -1,0 +1,2 @@
+# SharkBot-UserInstall
+SharkBotのユーザーインストールアプリバージョン
