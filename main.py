@@ -27,4 +27,8 @@ async def setup_hook():
             await client.load_extension(f"cogs.{cog[:-3]}")
     await client.tree.sync()
 
+@client.event
+async def on_ready():
+    print(f"Ready: {client.user.name}")
+
 client.run(os.environ.get('TOKEN'))
