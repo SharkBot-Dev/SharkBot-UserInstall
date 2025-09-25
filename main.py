@@ -6,6 +6,8 @@ import os
 from motor.motor_asyncio import AsyncIOMotorClient
 from dotenv import load_dotenv
 
+load_dotenv()
+
 class SharkBotUser(commands.AutoShardedBot):
     def __init__(self):
         super().__init__(
@@ -18,9 +20,6 @@ class SharkBotUser(commands.AutoShardedBot):
 
 client = SharkBotUser()
 
-with open("../Token.json") as tk:
-    tko = json.loads(tk.read())
-
 @client.event
 async def setup_hook():
     for cog in os.listdir("cogs"):
@@ -28,4 +27,4 @@ async def setup_hook():
             await client.load_extension(f"cogs.{cog[:-3]}")
     await client.tree.sync()
 
-client.run(tko["User"])
+client.run(os.environ.get('TOKEN'))
